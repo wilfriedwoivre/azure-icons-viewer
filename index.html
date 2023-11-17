@@ -1,21 +1,24 @@
 ---
 layout: default
 ---
+<div class="top">
+    <a href=".." class="home">&#129093;</a> &nbsp; <h1>{{ site.name }}</h1>
+    <br/>
+    <span class="find">Finder: <input onkeyup="search()" id="finder"></span> 
+    <div class="pngbox"><input type="checkbox" id="pngcheck"><label for="pngcheck">Download as PNG</label></div>
+    <button onclick="toggleBg()">Toggle Background</button>
+  </div>
 
-<div class="container">
-    <div class="galery">
-        <ul class="galery-image">
-            {% for image in site.static_files | where: "image", true %}
-            {% if image.path contains 'azure-icons' %}
-            {% if image.extname == 'jpg' %}
-            <li>
-                <a href="{{ site.url }}{{ image.path }}">
-                    <img src="{{ site.url }}{{ image.path }}" alt="{{ image.name }}" />
-                </a>
-            </li>
-            {% endif %}
-            {% endif %}
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+  <div class="grid">
+    {% assign image_files = site.static_files | where: "image", true %}
+    {% for image in image_files %}
+    {% if image.extname == '.svg' %}
+    {% assign name = image.name | slice: 19, 100 | replace: "-", " " | replace: ".svg", "" %}
+    {% assign id = name | downcase %}
+    <li>
+        <div id="{{ id }}" class="imgbox"><img src="{{ site.url }}{{ image.path }}" class="bg-0" onclick="download('{{ site.url }}{{ image.path }}', this)"/><div class="label">{{ name }}</div></div>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </div>
+
