@@ -2,28 +2,18 @@
 layout: default
 ---
 
-<div class="row">
-    <div class="col-lg-8">
-        <ul>
-            <div class="row">
-                {% for post in site.posts %}
-                <div class="card blog-post">
-                    <div class="card-body center">
-                        <h4 class="card-title">{{ post.title }}</h4>
-
-                        <h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: "%b %-d, %Y" }}</h6>
-                        <!-- <img class="card-body-img" src="{{ site.url }}/images/{{ post.image }}" /> -->
-                        <p class="card-text">{{ post.summary }} </p>
-
-                        <a href="{{ site.url }}{{ post.url }}" class="btn btn-primary btn-lg">Read</a>
-                    </div>
-                </div>
-
-                {% endfor %}
-            </div>
+<div class="container">
+    <div class="galery">
+        <ul class="galery-image">
+            {% for image in site.static_files %}
+            {% if image.path contains 'azure-icons' %}
+            <li>
+                <a href="{{ site.url }}{{ image.path }}">
+                    <img src="{{ site.url }}{{ image.path }}" alt="{{ image.name }}" />
+                </a>
+            </li>
+            {% endif %}
+            {% endfor %}
         </ul>
-
-
     </div>
-
 </div>
