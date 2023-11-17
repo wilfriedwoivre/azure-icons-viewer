@@ -5,7 +5,7 @@ layout: default
 <div class="container">
     <div class="galery">
         <ul class="galery-image">
-            {% for image in site.static_files %}
+            {% for image in site.static_files | where: "image", true %}
             {% if image.path contains 'azure-icons' %}
             {% if image.extname == 'jpg' %}
             <li>

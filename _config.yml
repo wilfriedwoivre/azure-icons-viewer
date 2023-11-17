@@ -29,6 +29,12 @@ urls:
       url: /about.html
       target: _self
 
+defaults:
+  - scope:
+      path: "azure-icons"
+    values:
+      image: true
+
 kramdown:
   input: GFM
   syntax_highlighter: rouge
