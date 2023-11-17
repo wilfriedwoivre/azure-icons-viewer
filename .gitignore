@@ -1,2 +1,10 @@
 # Ignore PDF files
 *.pdf
+
+_cache
+_site
+/Gemfile.lock
+.DS_Store
+/.sass-cache/
+.jekyll-cache
+/temp

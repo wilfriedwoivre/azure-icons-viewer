@@ -1,0 +1,63 @@
+author: Wilfried Woivré
+name: Azure icons viewer
+description: Website to simplify usage of Azure icons
+
+title: Azure Icons viewer
+subtitle: Website to simplify usage of Azure icons
+
+url: "https://azureicons.woivre.com"
+
+baseurl: ""
+
+github: "wilfriedwoivre"
+
+twitter_username: "wilfriedwoivre"
+linkedin_username: "wilfriedwoivre"
+
+gaaccount: 
+
+comments: false
+
+isso: ''
+disqs: ''
+
+urls:
+    - text: Home
+      url: /
+      target: _self
+    - text: A propos
+      url: /about.html
+      target: _self
+
+permalink: '/:year/:month/:title'
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: posts
+    values:
+      permalink: '/:year/:month/:title'
+      title: 'Wilfried, Céline & Andrew - :title'
+  -
+    scope:
+      path: "private_img"
+    values:
+      image: true
+
+paginate: 12
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+plugins: 
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+
+lang: fr
+
+exclude: ['utils', 'Readme.md', 'LICENSE']
