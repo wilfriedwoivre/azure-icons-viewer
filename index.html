@@ -6,6 +6,14 @@ layout: default
     <div class="galery">
         <ul class="galery-image">
             {% for image in site.static_files %}
+                {% if image.path contains '.svg' %}
+                    <li>
+                        <a href="{{ site.url }}{{ image.path }}">
+                            <img src="{{ site.url }}{{ image.path }}" alt="{{ image.name }}" />
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
             {% if image.path contains 'azure-icons' %}
             <li>
                 <a href="{{ site.url }}{{ image.path }}">

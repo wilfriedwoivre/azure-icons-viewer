@@ -1,11 +1,11 @@
 body {
-  background-color: #2ecdd0 !important;
+  background-color: black !important;
   height: 100vh;
   margin: 0;
+  color: white;
 }
 
 #body-login {
-  background-image: url("../img/dino.png");
   background-position: bottom left;
   background-size: auto 85%;
   background-repeat: no-repeat;
@@ -27,7 +27,6 @@ h1 {
 
 div.hr {
   height: 15px;
-  background-image: url("../img/hr_dino.png");
   background-position-x: left;
   background-repeat: repeat no-repeat;
 }
@@ -128,7 +127,7 @@ span.pagination-step {
 .galery-image > li > img {
   cursor: -webkit-zoom-in;
   cursor: zoom-in;
-  width: 25px;
+  width: 100px;
 }
 
 #author_details a:link{
