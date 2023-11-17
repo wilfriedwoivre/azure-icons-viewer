@@ -29,24 +29,6 @@ urls:
       url: /about.html
       target: _self
 
-permalink: '/:year/:month/:title'
-
-defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-      type: posts
-    values:
-      permalink: '/:year/:month/:title'
-      title: 'Wilfried, Céline & Andrew - :title'
-  -
-    scope:
-      path: "private_img"
-    values:
-      image: true
-
-paginate: 12
-
 kramdown:
   input: GFM
   syntax_highlighter: rouge
