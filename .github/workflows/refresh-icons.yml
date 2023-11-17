@@ -18,6 +18,11 @@ jobs:
           wget -O icons.zip https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V17.zip
           unzip -o icons.zip -d azure-icons
 
+      - name: Move SVG files
+        run: |
+          find azure-icons -type f -name "*.svg" -exec mv {} azure-icons \;
+          
+
       - name: push-update
         run: |
           ls -R
