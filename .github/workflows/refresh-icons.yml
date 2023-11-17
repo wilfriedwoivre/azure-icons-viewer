@@ -16,7 +16,7 @@ jobs:
       - name: Download and unzip file
         run: |
           wget -O icons.zip https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V17.zip
-          unzip azure-icons/icons.zip
+          unzip -o icons.zip -d azure-icons
 
       - name: push-update
         run: |
