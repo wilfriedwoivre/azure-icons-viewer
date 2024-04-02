@@ -27,7 +27,7 @@ function download(f, e) {
   if (document.getElementById("copycheck").checked) {
     var data = getBase64Image(e);
     // var data = "data:image/png;base64," + data;
-    navigator.clipboard.write(new ClipboardItem({ "image/png": data }))
+    navigator.clipboard.write([new ClipboardItem({ "image/png": data })])
   } else {
     if (document.getElementById("pngcheck").checked) {
       var data = getBase64Image(e);
