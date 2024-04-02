@@ -25,14 +25,13 @@ function search() {
 
 function download(f, e) {
   if (document.getElementById("copycheck").checked) {
-      var data = getBase64Image(e);
-      var data = "data:image/png;base64," + data;
-      navigator.clipboard.writeText(data).then(function() {
-        console.log('Copied to clipboard');
-      }, function() {
-        console.log('Failed to copy to clipboard');
-      });
-    }
+    var data = getBase64Image(e);
+    var data = "data:image/png;base64," + data;
+    navigator.clipboard.writeText(data).then(function () {
+      console.log('Copied to clipboard');
+    }, function () {
+      console.log('Failed to copy to clipboard');
+    });
   } else {
     if (document.getElementById("pngcheck").checked) {
       var data = getBase64Image(e);
@@ -49,6 +48,7 @@ function download(f, e) {
 
   }
 }
+
 
 // Actual magic
 function getBase64Image(img) {
