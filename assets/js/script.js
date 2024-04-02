@@ -1297,7 +1297,7 @@ function search() {
 function download(f, e) {
   if (document.getElementById("copycheck").checked) {
     domtoimage.toBlob(e).then(function(blob) {
-      navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]
+      navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
     });
   } else {
     if (document.getElementById("pngcheck").checked) {
