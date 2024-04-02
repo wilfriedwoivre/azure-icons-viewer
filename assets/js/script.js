@@ -25,7 +25,6 @@ function search() {
 
 function download(f, e) {
   if (document.getElementById("copycheck").checked) {
-    navigator.permissions.query({ name: "clipboard-write" }).then(result => {
       var data = getBase64Image(e);
       var data = "data:image/png;base64," + data;
       navigator.clipboard.writeText(data).then(function() {
@@ -33,8 +32,7 @@ function download(f, e) {
       }, function() {
         console.log('Failed to copy to clipboard');
       });
-      
-    });
+    }
   } else {
     if (document.getElementById("pngcheck").checked) {
       var data = getBase64Image(e);
