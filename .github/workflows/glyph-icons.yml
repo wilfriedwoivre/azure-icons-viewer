@@ -1,0 +1,43 @@
+name: Refresh Icons
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 1"
+
+jobs:
+  refresh-icons:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download and unzip file
+        run: |
+            while IFS= read -r line
+            do
+                # Use grep with a Perl-compatible regular expression to find 'href' and 'title' attributes that contain an SVG file
+                href=$(echo "$line" | grep -oP '<a[^>]*href="\K[^"]*\.svg(?=")')
+                title=$(echo "$line" | grep -oP '<a[^>]*title="\K[^"]*(?=")')
+            
+                # If 'href' and 'title' were found, print them
+                if [[ $href && $title ]]; then
+                    echo "href: $href, title: $title"
+                fi
+            done < curl -kv https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/
+
+    #   - name: Move SVG files
+    #     run: |
+    #       find azure-icons -type f -name "*.svg" -exec mv {} azure-icons \;
+          
+
+    #   - name: push-update
+    #     run: |
+    #       ls -R
+    #       git config --global user.name 'Gitub Action Bot'
+    #       git config --global user.email 'wilfried.woivre@users.noreply.github.com'
+    #       git add .
+    #       git diff --quiet && git diff --staged --quiet || git commit -am "Refresh Azure Icons"
+    #       git pull --rebase
+    #       git push
