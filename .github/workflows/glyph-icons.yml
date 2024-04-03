@@ -25,7 +25,7 @@ jobs:
                 if [[ $href && $title ]]; then
                     echo "href: $href, title: $title"
                 fi
-            done < curl -kv https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/
+            done < curl -kv 'https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/'
 
     #   - name: Move SVG files
     #     run: |
