@@ -15,6 +15,7 @@ jobs:
 
       - name: Browse Azure Glyphs Icons
         run: |
+            content=$(curl -kv 'https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/')
             while IFS= read -r line
             do
                 # Use grep with a Perl-compatible regular expression to find 'href' and 'title' attributes that contain an SVG file
@@ -25,8 +26,7 @@ jobs:
                 if [[ $href && $title ]]; then
                     echo "href: $href, title: $title"
                 fi
-            done < curl -kv 'https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/'
-
+            done < content
     #   - name: Move SVG files
     #     run: |
     #       find azure-icons -type f -name "*.svg" -exec mv {} azure-icons \;
